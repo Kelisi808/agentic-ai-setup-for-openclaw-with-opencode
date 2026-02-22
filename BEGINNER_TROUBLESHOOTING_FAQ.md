@@ -117,6 +117,41 @@ doctl version
 
 ---
 
+## How to Find API Keys (OpenAI, Claude, Gemini, Grok + OpenRouter)
+Use this section when onboarding asks for provider authentication.
+
+### OpenAI
+- Go to: https://platform.openai.com/
+- Sign in -> open API keys page -> create a new secret key.
+- Save it immediately (you may not be able to view full key again).
+
+### Claude (Anthropic)
+- Go to: https://console.anthropic.com/
+- Sign in -> API Keys -> create key.
+- Copy and store in your password manager.
+
+### Gemini (Google AI)
+- Go to: https://aistudio.google.com/
+- Sign in -> Get API key / API keys -> create key.
+- Ensure the correct Google account/project is selected.
+
+### Grok (xAI)
+- Go to: https://console.x.ai/
+- Sign in -> API / Keys section -> create key.
+- Copy the key and keep it private.
+
+### OpenRouter (popular alternative)
+- Go to: https://openrouter.ai/
+- Sign in -> Keys -> create key.
+- Useful if course workflows mention OpenRouter-supported models.
+
+Security reminders:
+- Never post API keys in Canvas, GitHub, or screenshots.
+- Never commit keys into `.env` files that are pushed to GitHub.
+- Revoke and regenerate any key you accidentally expose.
+
+---
+
 ## Verification Commands (Submission Readiness)
 Run these and keep output screenshots:
 ```bash
@@ -149,28 +184,10 @@ Provider auth (like OAuth) requires your account login/approval and cannot be fu
 ### Q5) Can I use only GUI and avoid CLI?
 Not for this assignment. You need basic CLI commands for setup and verification.
 
-### Q6) I copied the command exactly and still got an error. What now?
-Post:
-1) OS
-2) exact command
-3) full output/error
-4) what step you are on
-
-### Q7) Is this setup destructive?
+### Q6) Is this setup destructive?
 It creates cloud resources (droplet) and may incur small costs in DigitalOcean.
 Delete unused droplets when done.
 
-### Q8) Do I need OpenCode and OpenClaw both?
+### Q7) Do I need OpenCode and OpenClaw both?
 For this class workflow: yes, install both so you can follow all exercises.
 
----
-
-## Help Request Template (Copy/Paste)
-```text
-OS: (Windows/macOS)
-Step number: 
-Command run:
-Full error output:
-What I already tried:
-Screenshot (optional):
-```
