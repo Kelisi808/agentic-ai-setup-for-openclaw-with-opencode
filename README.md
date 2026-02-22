@@ -40,6 +40,8 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 - `PITSTOP_OPTIMIZATION_CHECKLIST.md`
 - `QUICKSTART_EXAMPLES.md`
 - `CONTRIBUTING.md`
+- `SECURITY.md`
+- `CODE_OF_CONDUCT.md`
 - `windows/setup_openclaw_windows.ps1`
 - `mac/setup_openclaw_mac.sh`
 
