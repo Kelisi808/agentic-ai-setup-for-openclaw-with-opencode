@@ -16,17 +16,12 @@ npm -v
 git --version
 ```
 
-## 1) Install OpenCode CLI
+## 1) Install OpenCode CLI (C-drive default)
 ```powershell
 npm install -g opencode-ai
 opencode --version
 ```
 
-Default C drive install (recommended for class consistency):
-```powershell
-npm install -g opencode-ai
-opencode --version
-```
 
 ## 2) Install OpenClaw CLI
 ```powershell
