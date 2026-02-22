@@ -8,10 +8,18 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 - This project was originally prepared for current Harvard and MIT Agentic AI students.
 - It is now open to everyone, and the same instructions still apply to any builder who wants to create AI agents.
 
+## Public starter release
+- This repository now includes a global quickstart path, contributor templates, and PitStop-oriented operations guidance.
+- See release notes in GitHub Releases for the latest adoption-ready baseline.
+
 ## Who this repo is for
 - Beginners who want copy/paste setup steps.
 - Builders launching a first agent runtime in the cloud.
 - Teams standardizing OpenClaw + OpenCode onboarding.
+
+## Pinned quickstart examples
+- Start here: `QUICKSTART_EXAMPLES.md`
+- Includes local checks, droplet setup, onboarding verification, and PitStop smoke tests.
 
 ## Start in 5 steps
 1. Read `AI_AGENTS_WITH_OPENCLAW_OPENCODE_DIGITALOCEAN.md` for the big picture.
@@ -30,6 +38,8 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 - `BEGINNER_TROUBLESHOOTING_FAQ.md`
 - `AI_AGENTS_WITH_OPENCLAW_OPENCODE_DIGITALOCEAN.md`
 - `PITSTOP_OPTIMIZATION_CHECKLIST.md`
+- `QUICKSTART_EXAMPLES.md`
+- `CONTRIBUTING.md`
 - `windows/setup_openclaw_windows.ps1`
 - `mac/setup_openclaw_mac.sh`
 
