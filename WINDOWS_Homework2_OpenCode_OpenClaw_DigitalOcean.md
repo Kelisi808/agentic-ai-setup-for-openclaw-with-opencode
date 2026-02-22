@@ -1,6 +1,6 @@
 # Homework 2 Fast Setup (Windows)
 
-This guide is designed to get students from zero to working OpenCode + OpenClaw + DigitalOcean in about 20-40 minutes.
+This guide is designed to get students from zero to working OpenCode + OpenClaw + DigitalOcean in about 20-40 minutes using standard defaults on C drive.
 
 ## 0) Prerequisites
 - Windows 10/11
@@ -22,12 +22,11 @@ npm install -g opencode-ai
 opencode --version
 ```
 
-Optional D drive global install:
+Default C drive install (recommended for class consistency):
 ```powershell
-npm install -g opencode-ai --prefix "D:\Opencode\npm-global"
-setx PATH "D:\Opencode\npm-global;%PATH%"
+npm install -g opencode-ai
+opencode --version
 ```
-Open a new terminal after `setx`.
 
 ## 2) Install OpenClaw CLI
 ```powershell
