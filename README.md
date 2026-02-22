@@ -7,6 +7,7 @@ This repo helps students self-serve the full setup for OpenCode + OpenClaw + Dig
 - `MAC_Homework2_OpenCode_OpenClaw_DigitalOcean.md`
 - `windows/setup_homework2_windows.ps1`
 - `mac/setup_homework2_mac.sh`
+- `BEGINNER_TROUBLESHOOTING_FAQ.md`
 
 ## OpenClaw Upstream Links
 - OpenClaw GitHub: https://github.com/openclaw/openclaw
@@ -27,3 +28,7 @@ git remote -v
 ## Notes
 - This project is an independent student setup accelerator.
 - It references OpenClaw upstream resources and does not replace official docs.
+
+
+## New to CLI?
+Start with `BEGINNER_TROUBLESHOOTING_FAQ.md` for beginner terms, install help, common errors, and FAQ.

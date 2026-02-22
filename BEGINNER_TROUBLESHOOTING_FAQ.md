@@ -1,0 +1,176 @@
+# Beginner Troubleshooting + FAQ (OpenCode/OpenClaw/DigitalOcean)
+
+This guide is for students who are brand new to coding, CLI, and cloud setup.
+
+## Start Here (If You Are New)
+- **CLI** = Command Line Interface (Terminal/PowerShell where you type commands)
+- **IDE** = code editor app (VS Code is most common)
+- **Repository (repo)** = project folder tracked by GitHub
+- **Droplet** = a cloud Linux server in DigitalOcean
+
+If you can copy/paste commands and read error messages, you can complete this setup.
+
+## What You Install (and Why)
+1. **Git**: download/clone projects from GitHub.
+2. **Node.js + npm**: required to install OpenCode/OpenClaw CLIs.
+3. **OpenCode**: coding assistant CLI.
+4. **OpenClaw**: agent platform CLI/gateway.
+5. **doctl**: DigitalOcean CLI for droplet creation.
+6. **SSH key**: secure login to your droplet.
+
+## Zero-to-Working Checklist
+1. Install tools (`git`, `node`, `npm`, `openclaw`, `opencode`, `doctl`).
+2. Authenticate `doctl` with a DigitalOcean token.
+3. Create SSH key and add the **public key** in DigitalOcean.
+4. Create droplet.
+5. SSH into droplet.
+6. Install OpenClaw on droplet and run `openclaw onboard`.
+7. Verify with health/status commands.
+
+---
+
+## Installation Help (Windows)
+### Recommended
+- Install **Git for Windows**
+- Install **Node.js LTS** from nodejs.org
+- Install **doctl** with:
+```powershell
+winget install DigitalOcean.doctl
+```
+- Install CLIs:
+```powershell
+npm install -g opencode-ai openclaw
+```
+
+### Verify
+```powershell
+git --version
+node -v
+npm -v
+openclaw --version
+opencode --version
+doctl version
+```
+
+## Installation Help (macOS)
+### Recommended
+- Install Homebrew
+- Install tools:
+```bash
+brew update
+brew install git node doctl
+npm install -g opencode-ai openclaw
+```
+
+### Verify
+```bash
+git --version
+node -v
+npm -v
+openclaw --version
+opencode --version
+doctl version
+```
+
+---
+
+## Most Common Errors + Fixes
+
+### 1) `command not found`
+**Cause:** tool not installed or terminal not reloaded.
+**Fix:** install tool, close/reopen terminal, run version command again.
+
+### 2) `Permission denied (publickey)` when SSH
+**Cause:** wrong private key OR public key not added to DigitalOcean.
+**Fix:**
+- confirm private key path is correct
+- add matching `.pub` key in DO -> Settings -> Security -> SSH Keys
+- retry SSH with explicit `-i <key_path>`
+
+### 3) SSH timeout
+**Cause:** wrong IP, droplet not running, network/firewall delay.
+**Fix:**
+- verify droplet status in DO dashboard
+- confirm IP with `doctl compute droplet list`
+- wait 1-2 min after droplet creation and retry
+
+### 4) `No provider plugins found`
+**Cause:** auth not completed through onboarding flow.
+**Fix:** run `openclaw onboard` and finish interactive auth.
+
+### 5) `No API key found for provider ...`
+**Cause:** model provider auth missing.
+**Fix:**
+- run `openclaw onboard` or `openclaw configure`
+- verify with `openclaw models status`
+
+### 6) `gateway closed ... pairing required`
+**Cause:** pending device pairing.
+**Fix:** approve pending device in OpenClaw device workflow and retry.
+
+### 7) `Repository not found` on git push
+**Cause:** repo not created yet on GitHub or wrong remote URL.
+**Fix:**
+- create repo in GitHub first
+- check `git remote -v`
+- use `git@github.com:<username>/<repo>.git`
+
+---
+
+## Verification Commands (Submission Readiness)
+Run these and keep output screenshots:
+```bash
+openclaw gateway status
+openclaw models status
+openclaw agent --agent main --message "Reply with HOMEWORK2_OK only" --json
+```
+On droplet:
+```bash
+systemctl status openclaw --no-pager
+```
+
+---
+
+## FAQ (Beginner Friendly)
+
+### Q1) Do I need to know coding first?
+No. You mainly need to run commands carefully and follow steps in order.
+
+### Q2) What is the difference between local machine and droplet?
+- Local = your laptop/desktop.
+- Droplet = cloud server that can keep running even when your laptop is off.
+
+### Q3) Why do we use SSH keys instead of password?
+SSH keys are more secure and are the standard for server access.
+
+### Q4) Why do I still need an interactive step?
+Provider auth (like OAuth) requires your account login/approval and cannot be fully automated safely.
+
+### Q5) Can I use only GUI and avoid CLI?
+Not for this assignment. You need basic CLI commands for setup and verification.
+
+### Q6) I copied the command exactly and still got an error. What now?
+Post:
+1) OS
+2) exact command
+3) full output/error
+4) what step you are on
+
+### Q7) Is this setup destructive?
+It creates cloud resources (droplet) and may incur small costs in DigitalOcean.
+Delete unused droplets when done.
+
+### Q8) Do I need OpenCode and OpenClaw both?
+For this class workflow: yes, install both so you can follow all exercises.
+
+---
+
+## Help Request Template (Copy/Paste)
+```text
+OS: (Windows/macOS)
+Step number: 
+Command run:
+Full error output:
+What I already tried:
+Screenshot (optional):
+```
