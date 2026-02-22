@@ -1,10 +1,10 @@
 param(
-  [string]$DropletName = "pitstop-hw2",
+  [string]$DropletName = "pitstop-node",
   [string]$Region = "nyc1",
   [string]$Size = "s-1vcpu-1gb",
   [string]$Image = "ubuntu-24-04-x64",
   [string]$SshKeyFingerprint,
-  [string]$SshPrivateKey = "$env:USERPROFILE\.ssh\homework2_do_ed25519"
+  [string]$SshPrivateKey = "$env:USERPROFILE\.ssh\openclaw_do_ed25519"
 )
 
 $ErrorActionPreference = "Stop"
@@ -30,7 +30,7 @@ try { doctl account get | Out-Null } catch { throw "Run: doctl auth init" }
 
 if (-not (Test-Path $SshPrivateKey)) {
   Write-Host "[4/8] Creating SSH key..."
-  ssh-keygen -t ed25519 -C "homework2-windows" -f $SshPrivateKey -N ""
+  ssh-keygen -t ed25519 -C "openclaw-windows" -f $SshPrivateKey -N ""
   Write-Host "Public key (add to DigitalOcean):"
   Get-Content "$SshPrivateKey.pub"
   throw "Add key in DO then rerun with -SshKeyFingerprint"

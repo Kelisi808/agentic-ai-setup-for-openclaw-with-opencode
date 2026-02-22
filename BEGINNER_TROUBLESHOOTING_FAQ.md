@@ -1,193 +1,109 @@
-# Beginner Troubleshooting + FAQ (OpenCode/OpenClaw/DigitalOcean)
+Aloha
 
-This guide is for students who are brand new to coding, CLI, and cloud setup.
+# Beginner troubleshooting and FAQ (OpenCode/OpenClaw/DigitalOcean)
 
-## Start Here (If You Are New)
-- **CLI** = Command Line Interface (Terminal/PowerShell where you type commands)
-- **IDE** = code editor app (VS Code is most common)
-- **Repository (repo)** = project folder tracked by GitHub
-- **Droplet** = a cloud Linux server in DigitalOcean
+This guide is for anyone new to coding, CLI tools, and cloud setup.
 
-If you can copy/paste commands and read error messages, you can complete this setup.
+## Start here
+- **CLI** = command line (Terminal/PowerShell where you type commands).
+- **IDE** = code editor app (VS Code is common).
+- **Repository** = project folder tracked in Git.
+- **Droplet** = a cloud Linux server in DigitalOcean.
 
-## What You Install (and Why)
-1. **Git**: download/clone projects from GitHub.
-2. **Node.js + npm**: required to install OpenCode/OpenClaw CLIs.
+If you can copy commands and read errors, you can complete this setup.
+
+## What you install (and why)
+1. **Git**: clone and version your project.
+2. **Node.js + npm**: install OpenCode and OpenClaw CLIs.
 3. **OpenCode**: coding assistant CLI.
-4. **OpenClaw**: agent platform CLI/gateway.
-5. **doctl**: DigitalOcean CLI for droplet creation.
-6. **SSH key**: secure login to your droplet.
+4. **OpenClaw**: agent runtime and gateway.
+5. **doctl**: DigitalOcean CLI.
+6. **SSH key**: secure server login.
 
-## Zero-to-Working Checklist
+## Zero-to-working checklist
 1. Install tools (`git`, `node`, `npm`, `openclaw`, `opencode`, `doctl`).
-2. Authenticate `doctl` with a DigitalOcean token.
-3. Create SSH key and add the **public key** in DigitalOcean.
+2. Authenticate `doctl` with your DigitalOcean token.
+3. Create SSH key and add the public key in DigitalOcean.
 4. Create droplet.
 5. SSH into droplet.
-6. Install OpenClaw on droplet and run `openclaw onboard`.
-7. Verify with health/status commands.
+6. Install OpenClaw and run `openclaw onboard`.
+7. Verify with health commands.
 
----
+## Common errors and fixes
+### `command not found`
+- Cause: tool not installed or terminal not reloaded.
+- Fix: install tool and reopen terminal.
 
-## Installation Help (Windows)
-### Recommended
-- Install **Git for Windows**
-- Install **Node.js LTS** from nodejs.org
-- Install **doctl** with:
-```powershell
-winget install DigitalOcean.doctl
-```
-- Install CLIs:
-```powershell
-npm install -g opencode-ai openclaw
-```
+### `Permission denied (publickey)`
+- Cause: wrong private key or key not added to DO.
+- Fix: verify key path and add matching `.pub` key in DO.
 
-### Verify
-```powershell
-git --version
-node -v
-npm -v
-openclaw --version
-opencode --version
-doctl version
-```
+### SSH timeout
+- Cause: wrong IP, droplet booting, firewall delay.
+- Fix: confirm with `doctl compute droplet list` and retry in 1-2 minutes.
 
-## Installation Help (macOS)
-### Recommended
-- Install Homebrew
-- Install tools:
-```bash
-brew update
-brew install git node doctl
-npm install -g opencode-ai openclaw
-```
+### `No provider plugins found`
+- Cause: provider auth not completed.
+- Fix: run `openclaw onboard` and finish interactive auth.
 
-### Verify
-```bash
-git --version
-node -v
-npm -v
-openclaw --version
-opencode --version
-doctl version
-```
+### `No API key found for provider ...`
+- Cause: model provider auth missing.
+- Fix: run `openclaw configure` or onboarding again.
 
----
+### `gateway closed ... pairing required`
+- Cause: pending device pairing.
+- Fix: approve the device in OpenClaw and retry.
 
-## Most Common Errors + Fixes
+### `Repository not found` on `git push`
+- Cause: wrong remote URL or repo does not exist.
+- Fix: check `git remote -v` and create/fix remote URL.
 
-### 1) `command not found`
-**Cause:** tool not installed or terminal not reloaded.
-**Fix:** install tool, close/reopen terminal, run version command again.
-
-### 2) `Permission denied (publickey)` when SSH
-**Cause:** wrong private key OR public key not added to DigitalOcean.
-**Fix:**
-- confirm private key path is correct
-- add matching `.pub` key in DO -> Settings -> Security -> SSH Keys
-- retry SSH with explicit `-i <key_path>`
-
-### 3) SSH timeout
-**Cause:** wrong IP, droplet not running, network/firewall delay.
-**Fix:**
-- verify droplet status in DO dashboard
-- confirm IP with `doctl compute droplet list`
-- wait 1-2 min after droplet creation and retry
-
-### 4) `No provider plugins found`
-**Cause:** auth not completed through onboarding flow.
-**Fix:** run `openclaw onboard` and finish interactive auth.
-
-### 5) `No API key found for provider ...`
-**Cause:** model provider auth missing.
-**Fix:**
-- run `openclaw onboard` or `openclaw configure`
-- verify with `openclaw models status`
-
-### 6) `gateway closed ... pairing required`
-**Cause:** pending device pairing.
-**Fix:** approve pending device in OpenClaw device workflow and retry.
-
-### 7) `Repository not found` on git push
-**Cause:** repo not created yet on GitHub or wrong remote URL.
-**Fix:**
-- create repo in GitHub first
-- check `git remote -v`
-- use `git@github.com:<username>/<repo>.git`
-
----
-
-## How to Find API Keys (OpenAI, Claude, Gemini, Grok + OpenRouter)
-Use this section when onboarding asks for provider authentication.
-
+## Where to find API keys
 ### OpenAI
-- Go to: https://platform.openai.com/
-- Sign in -> open API keys page -> create a new secret key.
-- Save it immediately (you may not be able to view full key again).
+- https://platform.openai.com/ -> API keys -> create key.
 
 ### Claude (Anthropic)
-- Go to: https://console.anthropic.com/
-- Sign in -> API Keys -> create key.
-- Copy and store in your password manager.
+- https://console.anthropic.com/ -> API Keys.
 
-### Gemini (Google AI)
-- Go to: https://aistudio.google.com/
-- Sign in -> Get API key / API keys -> create key.
-- Ensure the correct Google account/project is selected.
+### Gemini (Google)
+- https://aistudio.google.com/ -> create API key.
 
 ### Grok (xAI)
-- Go to: https://console.x.ai/
-- Sign in -> API / Keys section -> create key.
-- Copy the key and keep it private.
+- https://console.x.ai/ -> API keys.
 
-### OpenRouter (popular alternative)
-- Go to: https://openrouter.ai/
-- Sign in -> Keys -> create key.
-- Useful if course workflows mention OpenRouter-supported models.
+### OpenRouter
+- https://openrouter.ai/ -> Keys.
 
 Security reminders:
-- Never post API keys in Canvas, GitHub, or screenshots.
-- Never commit keys into `.env` files that are pushed to GitHub.
-- Revoke and regenerate any key you accidentally expose.
+- Never commit API keys.
+- Never post API keys in screenshots.
+- Revoke and rotate exposed keys immediately.
 
----
-
-## Verification Commands (Submission Readiness)
-Run these and keep output screenshots:
+## Verification commands
 ```bash
 openclaw gateway status
 openclaw models status
-openclaw agent --agent main --message "Reply with HOMEWORK2_OK only" --json
+openclaw agent --agent main --message "Reply with PITSTOP_READY only" --json
 ```
 On droplet:
 ```bash
 systemctl status openclaw --no-pager
 ```
 
----
+## FAQ
+### Do I need coding experience?
+No. You need basic command-line comfort and careful copy/paste.
 
-## FAQ (Beginner Friendly)
+### Why SSH keys over passwords?
+SSH keys are stronger and the standard for server access.
 
-### Q1) Do I need to know coding first?
-No. You mainly need to run commands carefully and follow steps in order.
+### Why is onboarding interactive?
+OAuth/API auth and security confirmations require manual approval.
 
-### Q2) What is the difference between local machine and droplet?
-- Local = your laptop/desktop.
-- Droplet = cloud server that can keep running even when your laptop is off.
+### Is there a cost?
+Yes. DigitalOcean resources can incur charges while running.
 
-### Q3) Why do we use SSH keys instead of password?
-SSH keys are more secure and are the standard for server access.
+### Do I need OpenCode and OpenClaw both?
+Yes, for this repository workflow.
 
-### Q4) Why do I still need an interactive step?
-Provider auth (like OAuth) requires your account login/approval and cannot be fully automated safely.
-
-### Q5) Can I use only GUI and avoid CLI?
-Not for this assignment. You need basic CLI commands for setup and verification.
-
-### Q6) Is this setup destructive?
-It creates cloud resources (droplet) and may incur small costs in DigitalOcean.
-Delete unused droplets when done.
-
-### Q7) Do I need OpenCode and OpenClaw both?
-For this class workflow: yes, install both so you can follow all exercises.
-
+A Hui Hou

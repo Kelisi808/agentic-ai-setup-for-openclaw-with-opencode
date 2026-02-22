@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DROPLET_NAME="${DROPLET_NAME:-pitstop-hw2}"
+DROPLET_NAME="${DROPLET_NAME:-pitstop-node}"
 REGION="${REGION:-nyc1}"
 SIZE="${SIZE:-s-1vcpu-1gb}"
 IMAGE="${IMAGE:-ubuntu-24-04-x64}"
-SSH_KEY_PATH="${SSH_KEY_PATH:-$HOME/.ssh/homework2_do_ed25519}"
+SSH_KEY_PATH="${SSH_KEY_PATH:-$HOME/.ssh/openclaw_do_ed25519}"
 SSH_KEY_FP="${SSH_KEY_FP:-}"
 
 need() { command -v "$1" >/dev/null 2>&1 || { echo "Missing command: $1"; exit 1; }; }
@@ -26,9 +26,9 @@ doctl account get >/dev/null || { echo "Run: doctl auth init"; exit 1; }
 
 if [[ ! -f "$SSH_KEY_PATH" ]]; then
   echo "[4/8] Creating SSH key..."
-  ssh-keygen -t ed25519 -C "homework2-mac" -f "$SSH_KEY_PATH" -N ""
+  ssh-keygen -t ed25519 -C "openclaw-mac" -f "$SSH_KEY_PATH" -N ""
   echo "Add this key to DigitalOcean:" && cat "$SSH_KEY_PATH.pub"
-  echo "Then rerun with: SSH_KEY_FP=<fingerprint> ./setup_homework2_mac.sh"
+  echo "Then rerun with: SSH_KEY_FP=<fingerprint> ./setup_openclaw_mac.sh"
   exit 1
 fi
 
