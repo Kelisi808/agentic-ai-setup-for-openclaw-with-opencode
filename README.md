@@ -1,6 +1,6 @@
 # Agentic AI Setup with OpenClaw
 
-This folder is ready to upload to GitHub so students can self-serve setup.
+This repo helps students self-serve the full setup for OpenCode + OpenClaw + DigitalOcean.
 
 ## Included
 - `WINDOWS_Homework2_OpenCode_OpenClaw_DigitalOcean.md`
@@ -8,18 +8,22 @@ This folder is ready to upload to GitHub so students can self-serve setup.
 - `windows/setup_homework2_windows.ps1`
 - `mac/setup_homework2_mac.sh`
 
-## Publish to GitHub (quick)
+## OpenClaw Upstream Links
+- OpenClaw GitHub: https://github.com/openclaw/openclaw
+- OpenClaw Docs: https://docs.openclaw.ai
+- OpenClaw npm: https://www.npmjs.com/package/openclaw
+
+## Optional: Add OpenClaw as upstream remote
 ```bash
-# run in Homework2_Autostart folder
-git init
-git add .
-git commit -m "Add Add Agentic AI setup with OpenClaw guides and automation"
-git branch -M main
-git remote add origin git@github.com:Kelisi808/homework2-openclaw-setup.git
-git push -u origin main
+git remote add upstream https://github.com/openclaw/openclaw.git
+git remote -v
 ```
 
 ## Student usage
 - Windows: read the Windows guide, then run PowerShell script.
 - macOS: read the mac guide, then run bash script.
 - Both still require one interactive step for `openclaw onboard` auth.
+
+## Notes
+- This project is an independent student setup accelerator.
+- It references OpenClaw upstream resources and does not replace official docs.
