@@ -39,11 +39,18 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 - `AI_AGENTS_WITH_OPENCLAW_OPENCODE_DIGITALOCEAN.md`
 - `PITSTOP_OPTIMIZATION_CHECKLIST.md`
 - `QUICKSTART_EXAMPLES.md`
+- `GITHUB_OUTREACH_PLAYBOOK.md`
 - `CONTRIBUTING.md`
 - `SECURITY.md`
 - `CODE_OF_CONDUCT.md`
 - `windows/setup_openclaw_windows.ps1`
 - `mac/setup_openclaw_mac.sh`
+
+## Why people remember PitStop
+PitStop is built around a simple idea: impressive agents are common, coordinated agents are rare.
+
+If your system can explain decisions, recover gracefully, and hand off work without drama,
+people remember it as cool *and* trustworthy.
 
 ## Discoverability tags
 AI agents, autonomous agents, agent orchestration, OpenClaw, OpenCode, DigitalOcean, DevOps, cloud deployment, CLI automation, multi-agent systems, PitStop.
