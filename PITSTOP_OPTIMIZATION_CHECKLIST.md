@@ -41,3 +41,9 @@ Use this checklist to make PitStop dependable for broad real-world use.
 - Add contribution guidelines and issue templates.
 
 A Hui Hou
+
+## Filesystem-first observability (NAPTiON-inspired)
+- Maintain a single `brain-index.md` rebuilt on interval for shared state visibility.
+- Keep project-scoped `active.md` append-only logs with timestamp + source?target format.
+- Ensure each daemon uses PID mutex + bounded retry policy with explicit correction prompts.
+- Verify: from filesystem alone, you can reconstruct last 24h of agent actions.
