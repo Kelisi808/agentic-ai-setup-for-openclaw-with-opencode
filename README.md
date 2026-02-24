@@ -2,7 +2,7 @@ Aloha
 
 # Agentic AI setup for OpenClaw with OpenCode
 
-A practical global starter kit for building AI agents with OpenCode + OpenClaw, deployed on DigitalOcean.
+A practical global starter kit for building AI agents with OpenCode + OpenClaw, deployable on DigitalOcean, Fly.io, Render, or Railway.
 
 ## Important note
 - This project was originally prepared for current Harvard and MIT Agentic AI students.
@@ -19,7 +19,12 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 
 ## Pinned quickstart examples
 - Start here: `QUICKSTART_EXAMPLES.md`
-- Includes local checks, droplet setup, onboarding verification, and PitStop smoke tests.
+- Includes local checks, platform selection, onboarding verification, and PitStop smoke tests.
+
+## Deployment platforms for PitStop
+- Read PITSTOP_DEPLOYMENT_OPTIONS.md before deploying.
+- Choose one primary platform first: DigitalOcean, Fly.io, Render, or Railway.
+- Keep one canonical public URL active for users and agents.
 
 ## Start in 5 steps
 1. Read `AI_AGENTS_WITH_OPENCLAW_OPENCODE_DIGITALOCEAN.md` for the big picture.
@@ -40,6 +45,7 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 - `PITSTOP_OPTIMIZATION_CHECKLIST.md`
 - `QUICKSTART_EXAMPLES.md`
 - `GITHUB_OUTREACH_PLAYBOOK.md`
+- `PITSTOP_DEPLOYMENT_OPTIONS.md`
 - `CONTRIBUTING.md`
 - `SECURITY.md`
 - `CODE_OF_CONDUCT.md`
@@ -53,7 +59,7 @@ If your system can explain decisions, recover gracefully, and hand off work with
 people remember it as cool *and* trustworthy.
 
 ## Discoverability tags
-AI agents, autonomous agents, agent orchestration, OpenClaw, OpenCode, DigitalOcean, DevOps, cloud deployment, CLI automation, multi-agent systems, PitStop.
+AI agents, autonomous agents, agent orchestration, OpenClaw, OpenCode, DigitalOcean, Fly.io, Render, Railway, DevOps, cloud deployment, CLI automation, multi-agent systems, PitStop.
 
 ## OpenClaw upstream links
 - OpenClaw GitHub: https://github.com/openclaw/openclaw

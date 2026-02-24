@@ -1,6 +1,6 @@
 Aloha
 
-# Beginner troubleshooting and FAQ (OpenCode/OpenClaw/DigitalOcean)
+# Beginner troubleshooting and FAQ (OpenCode/OpenClaw/DO/Fly/Render/Railway)
 
 This guide is for anyone new to coding, CLI tools, and cloud setup.
 
@@ -101,9 +101,15 @@ SSH keys are stronger and the standard for server access.
 OAuth/API auth and security confirmations require manual approval.
 
 ### Is there a cost?
-Yes. DigitalOcean resources can incur charges while running.
+Yes. DigitalOcean, Fly.io, Render, and Railway can all incur charges while services run.
 
 ### Do I need OpenCode and OpenClaw both?
 Yes, for this repository workflow.
+
+### Do I need all four deployment platforms?
+No. Pick one primary runtime first. You can test others later.
+
+### Can DigitalOcean also launch PitStop?
+Yes. DigitalOcean can run PitStop on a droplet and is still a valid primary deployment option.
 
 A Hui Hou
