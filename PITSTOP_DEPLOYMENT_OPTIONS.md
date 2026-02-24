@@ -51,6 +51,7 @@ Use when you want straightforward service deploy and env management.
 
 You need:
 - Railway account and project service.
+- Railway referral (new users get $20 credit): https://railway.com?referralCode=BzQiz7
 - Correct build and start commands.
 - Env vars and health checks configured.
 

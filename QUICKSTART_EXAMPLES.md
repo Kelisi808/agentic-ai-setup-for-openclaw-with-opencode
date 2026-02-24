@@ -27,6 +27,7 @@ Read PITSTOP_DEPLOYMENT_OPTIONS.md and choose one platform for your first launch
 - Fly.io for fast machine deployment
 - Render for managed web service simplicity
 - Railway for managed deployment workflow
+- Railway referral (new users get $20 credit): https://railway.com?referralCode=BzQiz7
 
 Use one canonical public URL at a time so users and agents are never confused.
 

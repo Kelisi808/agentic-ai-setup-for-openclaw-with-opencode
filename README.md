@@ -24,6 +24,7 @@ A practical global starter kit for building AI agents with OpenCode + OpenClaw, 
 ## Deployment platforms for PitStop
 - Read PITSTOP_DEPLOYMENT_OPTIONS.md before deploying.
 - Choose one primary platform first: DigitalOcean, Fly.io, Render, or Railway.
+- Railway referral (new users get $20 credit): https://railway.com?referralCode=BzQiz7
 - Keep one canonical public URL active for users and agents.
 
 ## Start in 5 steps
