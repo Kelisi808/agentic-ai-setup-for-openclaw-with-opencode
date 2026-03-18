@@ -50,9 +50,50 @@ If you can copy commands and read errors, you can complete this setup.
 - Cause: model provider auth missing.
 - Fix: run `openclaw configure` or onboarding again.
 
+### GitHub Copilot `421 Misdirected Request`
+- Cause: provider base URL mismatch between global config and active agent config.
+- Fix: set the same `github-copilot.baseUrl` in both places, then restart gateway:
+```json
+{
+  "models": {
+    "providers": {
+      "github-copilot": {
+        "baseUrl": "https://api.individual.githubcopilot.com"
+      }
+    }
+  }
+}
+```
+
+Apply to:
+- `~/.openclaw/openclaw.json`
+- active agent config JSON (for example `~/.openclaw/agents/main/config.json`)
+
 ### `gateway closed ... pairing required`
 - Cause: pending device pairing.
 - Fix: approve the device in OpenClaw and retry.
+
+### GPT-5 model returns `max_tokens unsupported`
+- Cause: GPT-5 family expects `max_completion_tokens` instead of `max_tokens`.
+- Fix: map request params by model family:
+  - GPT-5 -> `max_completion_tokens`
+  - legacy models -> `max_tokens`
+
+### `unknown channel: heartbeat` or `approval-unavailable` on Heartbeat
+- Cause: heartbeat channel execution path is blocked or unsupported in current policy path.
+- Fix: move heartbeat check-in to backend/server process instead of agent `exec` from Heartbeat channel.
+- Example backend call:
+```bash
+curl -sS -X POST "https://MC2_API/api/v1/agent/heartbeat" \
+  -H "X-Agent-Token: $AGENT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d "{\"agent_id\":\"ID\",\"status\":\"online\"}"
+```
+
+### Gemini personal OAuth works in CLI but OpenClaw plugin fails
+- Cause: plugin path may force Code Assist project discovery and skip personal OAuth branch.
+- Symptom: token exchange succeeds but `loadCodeAssist` returns 400.
+- Fix direction: detect personal mode from Gemini settings, skip workspace onboarding branch.
 
 ### `Repository not found` on `git push`
 - Cause: wrong remote URL or repo does not exist.
